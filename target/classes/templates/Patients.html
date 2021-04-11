@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Firstname</th>
+        <th>Surname</th>
+        <th>Redact</th>
+        <th>Delete</th>
+    </tr>
+    <div th:each="patient : ${patients}">
+        <tr>
+            <th><p th:text="${patient.getName()}">Name</p></th>
+            <th><p th:text="${patient.getSurname()}">Surname</p> </th>
+            <th><a th:href="'/patient/'+${patient.getId()}+'/edit'">Edit</a></th>
+            <th><a th:method="POST" th:action="@{'/patient/'+${patient.getId()}+'/delete'}">Delete</a></th>
+        </tr>
+    </div>
+</table>
+</body>
+</html>

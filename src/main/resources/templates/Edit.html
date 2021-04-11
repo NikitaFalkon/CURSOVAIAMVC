@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="patient : ${patients}">
+    <form th:method="POST">
+        <!--/*@thymesVar id="name" type="com"*/-->
+        <input type="text" th:value="${patient.name}" name="name" placeholder="name"/>
+        <br/>
+        <!--/*@thymesVar id="surname" type=""*/-->
+        <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname"/>
+        <button type="submit">Redact</button>
+    </form>
+</div>
+</body>
+</html>
