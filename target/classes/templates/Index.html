@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Erythrocytes</th>
+        <th>Platelets</th>
+        <th>Leukocytes</th>
+        <th>Hemoglobin</th>
+    </tr>
+    <tr>
+        <td><p th:text="${patient.getErythrocytes()}">value</p></td>
+        <td><p th:text="${patient.getPlatelets()}">value</p></td>
+        <td><p th:text="${patient.getLeukocytes()}">value</p></td>
+        <td><p th:text="${patient.getHemoglobin()}">value</p></td>
+    </tr>
+</table>
+<p th:text="${text}">Text</p>
+<br/>
+<a th:href="'/patient/'+${patient.getId()}+'/edit'"><button>Update</button></a></td>
+<a th:href="'/patient/'+${patient.getId()}+'/delete'"><button>Delete</button></a></td>
+</body>
+</html>

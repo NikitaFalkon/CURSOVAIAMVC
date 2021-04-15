@@ -39,4 +39,8 @@ public class PatientServiceImpl {
         Patient patient =patientRepository.findById(id).orElseThrow();
         patientRepository.delete(patient);
     }
+    public Patient show(long id)
+    {
+        return patientRepository.findById(id).orElseThrow();
+    }
 }

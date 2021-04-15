@@ -1,6 +1,7 @@
 package com.Controllers;
 
 import com.Model.Patient;
+import com.Service.Analysis;
 import com.Service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     PatientServiceImpl patientService;
+    @Autowired
+    Analysis analysis;
     @GetMapping("/patients")
     public String Patients(Model model)
     {
@@ -32,6 +35,13 @@ public class UserController {
     {
         patientService.Create(patient);
         return "redirect:/";
+    }
+    @GetMapping("patient/{id}")
+    public String index(@PathVariable("id") int id, Model model)
+    {
+        model.addAttribute("patient", patientService.show(id));
+        model.addAttribute("text", analysis.Сomparison(patientService.show(id)));
+        return "Index";
     }
     @GetMapping("/patient/{id}/edit")
     public String EditPatient(Model model, @PathVariable Long id)
@@ -56,7 +66,7 @@ public class UserController {
         }
         return "redirect:/";
     }
-    @PostMapping("/patient/{id}/delete")
+    @GetMapping("/patient/{id}/delete")
     public String DeletePatient(Model model, @PathVariable Long id)
     {
         patientService.delete(id);
