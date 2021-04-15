@@ -22,13 +22,21 @@ public class PatientServiceImpl {
     public Optional<Patient> FindById(Long id) {
         return patientRepository.findById(id);
     }
-    public boolean redactPatient(String name, String surname, long id)
+    public boolean redactPatient(String name, String surname,
+                                 double erythrocytes,
+                                 int platelets,
+                                 double leukocytes,
+                                 int hemoglobin, long id)
     {
         Patient patient = patientRepository.findById(id).orElseThrow();
         if (patient!=null)
         {
             patient.setName(name);
             patient.setSurname(surname);
+            patient.setErythrocytes(erythrocytes);
+            patient.setHemoglobin(hemoglobin);
+            patient.setLeukocytes(leukocytes);
+            patient.setPlatelets(platelets);
             patientRepository.save(patient);
             return true;
         }

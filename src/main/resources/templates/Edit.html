@@ -13,6 +13,15 @@
         <br/>
         <!--/*@thymesVar id="surname" type=""*/-->
         <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname"/>
+        <br/>
+        <input type="text" th:value="${patient.hemoglobin}" name="hemoglobin" placeholder="hemoglobin"/>
+        <br/>
+        <input type="text" th:value="${patient.platelets}" name="platelets" placeholder="platelets"/>
+        <br/>
+        <input type="text" th:value="${patient.erythrocytes}" name="erythrocytes" placeholder="erythrocytes"/>
+        <br/>
+        <input type="text" th:value="${patient.leukocytes}" name="leukocytes" placeholder="leukocytes"/>
+        <br/>
         <button type="submit">Redact</button>
     </form>
 </div>

@@ -2,6 +2,7 @@ package com.Controllers;
 
 import com.Model.Patient;
 import com.Service.Analysis;
+import com.Service.NormaService;
 import com.Service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,24 @@ public class UserController {
     PatientServiceImpl patientService;
     @Autowired
     Analysis analysis;
+    @Autowired
+    NormaService normaService;
     @GetMapping("/patients")
     public String Patients(Model model)
     {
         model.addAttribute("patients", patientService.readAll());
+        return "Patients";
+    }
+    @GetMapping("/normals")
+    public String Normals(Model model)
+    {
+        model.addAttribute("normals", normaService.allNormals());
+        return "Normals";
+    }
+    @GetMapping("/patientsall")
+    public String PatientsFind(Model model, @RequestParam(name = "name", required = false) String name)
+    {
+        model.addAttribute("patients", normaService.findByName(name));
         return "Patients";
     }
     @GetMapping("/new")
@@ -56,11 +71,14 @@ public class UserController {
     public String Redacting(@PathVariable(name = "id") long id,
                             @RequestParam(name = "name", required = false) String name,
                             @RequestParam(name = "surname", required = false) String surname,
-//                            @RequestParam(name ="role", required = false) String form,
+                            @RequestParam(name = "erythrocytes") double erythrocytes,
+                            @RequestParam(name = "platelets") int platelets,
+                            @RequestParam(name = "leukocytes") double leukocytes,
+                            @RequestParam(name = "hemoglobin") int hemoglobin,
                             Model model)
     {
         ;
-        if (!patientService.redactPatient(name,surname, id)){
+        if (!patientService.redactPatient(name,surname, erythrocytes, platelets, leukocytes, hemoglobin, id)){
             model.addAttribute("usernameError", "There is no such a user");
             return "redirect:/{id}/edit";
         }

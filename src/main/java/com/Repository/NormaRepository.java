@@ -9,4 +9,6 @@ public interface NormaRepository extends JpaRepository<Norma, Long> {
     Norma findByAge(String age);
 
     List<Norma> findAllByAge(String age);
+
+    List<Norma> findAllByName(String name);
 }
