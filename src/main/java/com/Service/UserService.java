@@ -1,8 +1,10 @@
 package com.Service;
 
+import com.Model.Patient;
 import com.Model.Role;
 import com.Model.User;
 import com.Repository.UserRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,18 +22,8 @@ public class UserService implements UserDetailsService {
     UserRepository userRepository;
     @Autowired
     PasswordEncoder passwordEncoder;
-    public boolean NewUser(User user)
-    {
-        User user1 = userRepository.findByUsername(user.getUsername());
-        if(user1 == null)
-        {
-            user.setRoles(Collections.singleton(Role.ADMIN));
-            user.setActive(true);
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            userRepository.save(user);
-            return true;
-        }
-        return false;
+    public Optional<User> FindById(Long id) {
+        return userRepository.findById(id);
     }
     public boolean FindUser(User user)
     {
@@ -42,13 +34,13 @@ public class UserService implements UserDetailsService {
         }
         return false;
     }
-    public boolean redactUser(String username, String password, long id)
+    public boolean redactUser(String username, long id)
     {
         User user = userRepository.findById(id).orElseThrow();
         if (user!=null)
         {
+            System.out.println(username);
             user.setUsername(username);
-            user.setPassword(passwordEncoder.encode(password));
             userRepository.save(user);
             return true;
         }
@@ -64,9 +56,6 @@ public class UserService implements UserDetailsService {
         return userRepository.existsById(id);
     }
 
-    public Optional<User> FindById(Long id) {
-        return userRepository.findById(id);
-    }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -75,5 +64,23 @@ public class UserService implements UserDetailsService {
 
     public void DeleteUser(long id) {
         userRepository.delete(userRepository.findById(id).orElseThrow());
+    }
+
+    public boolean redactPatient(String name, String password, long id) {
+        User user = userRepository.findById(id).orElseThrow();
+        if (user!=null)
+        {
+            user.setUsername(name);
+            user.setPassword(password);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean NewUser(User userForm) {
+        userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
+        userForm.setRoles(Collections.singleton(Role.ADMIN));
+        userRepository.save(userForm);
+        return true;
     }
 }

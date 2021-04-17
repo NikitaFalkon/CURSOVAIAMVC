@@ -11,6 +11,7 @@
         <th>Username</th>
         <th>Password</th>
         <th>Delete</th>
+        <th>Edit</th>
     </tr>
     <!--/*@thymesVar id="users" type=""*/-->
     <div th:each="user : ${users}">
@@ -18,6 +19,7 @@
             <th><p th:text="${user.getUsername()}">Username</p></th>
             <th><p th:text="${user.getPassword()}">Password</p> </th>
             <th><a th:href="'/users/'+${user.getId()}"><button>Delete</button></a></th>
+            <th><a th:href="'/users/'+${user.getId()}+'/edit'"><button>Edit</button></a></th>
         </tr>
     </div>
 </table>

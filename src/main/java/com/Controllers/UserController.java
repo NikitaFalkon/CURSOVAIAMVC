@@ -77,12 +77,12 @@ public class UserController {
                             @RequestParam(name = "hemoglobin") int hemoglobin,
                             Model model)
     {
-        ;
+
         if (!patientService.redactPatient(name,surname, erythrocytes, platelets, leukocytes, hemoglobin, id)){
             model.addAttribute("usernameError", "There is no such a user");
             return "redirect:/{id}/edit";
         }
-        return "redirect:/";
+        return "redirect:/users";
     }
     @GetMapping("/patient/{id}/delete")
     public String DeletePatient(Model model, @PathVariable Long id)
