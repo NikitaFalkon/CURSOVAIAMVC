@@ -34,9 +34,9 @@ public class UserController {
         return "Normals";
     }
     @GetMapping("/patientsall")
-    public String PatientsFind(Model model, @RequestParam(name = "name", required = false) String name)
+    public String PatientsFind(Model model, @RequestParam(name = "firstname", required = false) String name)
     {
-        model.addAttribute("patients", normaService.findByName(name));
+        model.addAttribute("patients", patientService.findByFirstName(name));
         return "Patients";
     }
     @GetMapping("/new")

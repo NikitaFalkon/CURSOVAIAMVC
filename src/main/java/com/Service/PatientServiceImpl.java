@@ -51,4 +51,8 @@ public class PatientServiceImpl {
     {
         return patientRepository.findById(id).orElseThrow();
     }
+
+    public List<Patient> findByFirstName(String name) {
+        return patientRepository.findAllByName(name);
+    }
 }

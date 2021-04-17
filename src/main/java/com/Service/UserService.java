@@ -72,4 +72,8 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
     }
+
+    public void DeleteUser(long id) {
+        userRepository.delete(userRepository.findById(id).orElseThrow());
+    }
 }

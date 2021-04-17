@@ -30,6 +30,6 @@ public class RegistrationController {
             model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
             return "Registration";
         }
-        return "redirect:/";
+        return "redirect:/menu";
     }
 }
