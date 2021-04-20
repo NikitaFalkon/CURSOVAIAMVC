@@ -1,5 +1,6 @@
 package com.Controllers;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -11,5 +12,5 @@ public class MenuController {
         return "MenuLogin";
     }
     @GetMapping("/menu")
-    public String Menu() {return "Menu";}
+    public String MenuUser() {return "Menu";}
 }

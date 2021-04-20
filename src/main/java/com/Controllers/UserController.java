@@ -5,6 +5,7 @@ import com.Service.Analysis;
 import com.Service.NormaService;
 import com.Service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -82,7 +83,7 @@ public class UserController {
             model.addAttribute("usernameError", "There is no such a user");
             return "redirect:/{id}/edit";
         }
-        return "redirect:/users";
+        return "redirect:/patients";
     }
     @GetMapping("/patient/{id}/delete")
     public String DeletePatient(Model model, @PathVariable Long id)

@@ -48,7 +48,8 @@ public class UserService implements UserDetailsService {
     }
     public List<User> allUsers()
     {
-        return userRepository.findAll();
+        return userRepository.findAllByRoles(Role.USER);
+        //return userRepository.findAll();
     }
 
     public boolean ExistById(long id)
@@ -79,7 +80,8 @@ public class UserService implements UserDetailsService {
 
     public boolean NewUser(User userForm) {
         userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
-        userForm.setRoles(Collections.singleton(Role.ADMIN));
+        userForm.setRoles(Collections.singleton(Role.USER));
+        userForm.setActive(true);
         userRepository.save(userForm);
         return true;
     }

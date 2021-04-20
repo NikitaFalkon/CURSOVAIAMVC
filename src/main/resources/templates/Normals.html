@@ -10,12 +10,20 @@
     <tr>
         <th>Sex</th>
         <th>Age</th>
+        <th>Erythrocytes</th>
+        <th>Platelets</th>
+        <th>Leukocytes</th>
+        <th>Hemoglobin</th>
     </tr>
     <!--/*@thymesVar id="normals" type=""*/-->
     <div th:each="norma : ${normals}">
         <tr>
             <th><p th:text="${norma.getSex()}">Sex</p></th>
             <th><p th:text="${norma.getAge()}">Age</p> </th>
+            <th><p th:text="${norma.getErythrocytes()}">Erythrocytes</p></th>
+            <th><p th:text="${norma.getPlatelets()}">Platel</p> </th>
+            <th><p th:text="${norma.getLeukocytes()}">leuk</p></th>
+            <th> <p th:text="${norma.getHemoglobin()}">Hem</p></th>
         </tr>
     </div>
 </table>
