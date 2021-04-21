@@ -1,8 +1,10 @@
 package com.Controllers;
 
+import com.Model.Role;
 import com.Model.User;
 import com.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,16 +36,23 @@ public class RegistrationController {
         }
         return "redirect:/";
     }
-    /*@GetMapping("/login")
+   /* @GetMapping("/login")
     public String Login(Model model)
     {
         model.addAttribute("user", new User());
         return "Login";
     }
     @PostMapping("/login")
-    public String Loging(Model model)
+    public String Loging(Model model, @RequestParam (name = "username") String username)
     {
-        model.addAttribute("user", new User());
-        return "Login";
+        User user = userService.findUser(username);
+        System.out.println(user.getRoles());
+        if(user.getRoles().contains(Role.ADMIN))
+        {
+            return "MenuAdmin";
+        }
+        else {
+            return "Menu";
+        }
     }*/
 }

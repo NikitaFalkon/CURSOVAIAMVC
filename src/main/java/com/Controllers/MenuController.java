@@ -20,9 +20,10 @@ public class MenuController {
     }
 
     @GetMapping("/menu")
-    public String MenuUser() {return "Menu";}
-    /*@PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/menuadmin")
+    public String MenuUser() {
+        return "Menu";
+    }
+/*    @GetMapping("/menuadmin")
     public String MenuAdmin() {return "MenuAdmin";}*/
     @GetMapping("/ex")
     public String Ex() {return "Ex";}

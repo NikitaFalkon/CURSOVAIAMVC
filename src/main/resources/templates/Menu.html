@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml"  uri="http://www.springframework.org/security/tags" >
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" uri="http://www.springframework.org/security/tags"
+      xmlns:security="http://www.springframework.org/schema/security" xmlns:fmt="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -86,9 +87,9 @@
     <div class="main" align="center">
         <h2>TITLE HEADING</h2>
         Logged user: <span sec:authentication="username">Bob</span>
-        <div sec:authorize="hasAuthority('ADMIN')">
-            This content is only shown to administrators.
-        </div>
+        <security:authorize ifAnyGranted="ROLE_ADMIN">
+            <fmt:message key="welcomemessageadmin" />
+        </security:authorize>
     </div>
 </div>
 </body>
