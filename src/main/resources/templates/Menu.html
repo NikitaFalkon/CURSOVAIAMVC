@@ -60,7 +60,6 @@
     </style>
 </head>
 <body>
-<body>
 <div><header id="23">
     <h2>Мой сайт</h2>
     <h3>Никита Соколовский</h3>
@@ -69,6 +68,8 @@
     <a href="/patients">Patients</a>
     <a href="/new">New Patient</a>
     <a href="/normals">Normals</a>
+    <a href="/users">Users</a>
+    <a href="/login">Login</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
 <div class="row">
@@ -84,6 +85,10 @@
     </div>
     <div class="main" align="center">
         <h2>TITLE HEADING</h2>
+        Logged user: <span sec:authentication="username">Bob</span>
+        <div sec:authorize="hasAuthority('ADMIN')">
+            This content is only shown to administrators.
+        </div>
     </div>
 </div>
 </body>

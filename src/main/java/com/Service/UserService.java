@@ -78,9 +78,16 @@ public class UserService implements UserDetailsService {
         return false;
     }
 
-    public boolean NewUser(User userForm) {
+    public boolean NewUser(User userForm, boolean checkbox) {
         userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
-        userForm.setRoles(Collections.singleton(Role.USER));
+        if(checkbox)
+        {
+            userForm.setRoles(Collections.singleton(Role.ADMIN));
+        }
+        else
+        {
+            userForm.setRoles(Collections.singleton(Role.USER));
+        }
         userForm.setActive(true);
         userRepository.save(userForm);
         return true;

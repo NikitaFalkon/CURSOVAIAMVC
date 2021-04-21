@@ -51,6 +51,7 @@ public class AdminController {
         }
         return "redirect:/users";
     }
-
+    @GetMapping("/menu")
+    public String MenuUser() {return "Menu";}
 
 }
