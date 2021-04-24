@@ -1,8 +1,7 @@
-package com.Controllers;
+package com.controllers;
 
-import com.Model.Patient;
-import com.Model.User;
-import com.Service.UserService;
+import com.model.User;
+import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -21,7 +20,7 @@ public class AdminController {
     public String Users(Model model)
     {
         model.addAttribute("users", userService.allUsers());
-        return "Users";
+        return "users";
     }
     @GetMapping("/users/{id}")
     public String Delete(@PathVariable("id") long id, Model model)
@@ -36,7 +35,7 @@ public class AdminController {
         ArrayList<User> users = new ArrayList<>();
         user.ifPresent(users::add);
         model.addAttribute("users", users);
-        return "EditUser";
+        return "edituser";
     }
     @PostMapping("/users/{id}/edit")
     public String Redacting(@PathVariable(name = "id") long id,

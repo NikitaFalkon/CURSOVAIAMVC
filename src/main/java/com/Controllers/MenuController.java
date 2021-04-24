@@ -1,8 +1,6 @@
-package com.Controllers;
+package com.controllers;
 
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +14,17 @@ public class MenuController {
     @GetMapping("/")
     public String Login()
     {
-        return "MenuLogin";
+        return "menulogin";
     }
 
     @GetMapping("/menu")
     public String MenuUser() {
-        return "Menu";
+        return "menu";
     }
 /*    @GetMapping("/menuadmin")
     public String MenuAdmin() {return "MenuAdmin";}*/
     @GetMapping("/ex")
-    public String Ex() {return "Ex";}
+    public String Ex() {return "ex";}
     @ExceptionHandler(AccessDeniedException.class)
     public void handleError(HttpServletResponse response) throws IOException {
         response.sendRedirect("/menu");

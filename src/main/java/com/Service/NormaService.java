@@ -1,8 +1,7 @@
-package com.Service;
+package com.service;
 
-import com.Model.Norma;
-import com.Model.User;
-import com.Repository.NormaRepository;
+import com.model.Norma;
+import com.repository.NormaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

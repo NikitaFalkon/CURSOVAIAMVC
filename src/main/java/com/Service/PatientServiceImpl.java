@@ -1,7 +1,7 @@
-package com.Service;
+package com.service;
 
-import com.Model.Patient;
-import com.Repository.PatientRepository;
+import com.model.Patient;
+import com.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

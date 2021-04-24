@@ -1,10 +1,8 @@
-package com.Service;
+package com.service;
 
-import com.Model.Patient;
-import com.Model.Role;
-import com.Model.User;
-import com.Repository.UserRepository;
-import org.springframework.beans.BeanUtils;
+import com.model.Role;
+import com.model.User;
+import com.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

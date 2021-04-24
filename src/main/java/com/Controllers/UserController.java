@@ -1,11 +1,10 @@
-package com.Controllers;
+package com.controllers;
 
-import com.Model.Patient;
-import com.Service.Analysis;
-import com.Service.NormaService;
-import com.Service.PatientServiceImpl;
+import com.model.Patient;
+import com.service.Analysis;
+import com.service.NormaService;
+import com.service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,25 +25,25 @@ public class UserController {
     public String Patients(Model model)
     {
         model.addAttribute("patients", patientService.readAll());
-        return "Patients";
+        return "patients";
     }
     @GetMapping("/normals")
     public String Normals(Model model)
     {
         model.addAttribute("normals", normaService.allNormals());
-        return "Normals";
+        return "normals";
     }
     @GetMapping("/patientsall")
     public String PatientsFind(Model model, @RequestParam(name = "firstname", required = false) String name)
     {
         model.addAttribute("patients", patientService.findByFirstName(name));
-        return "Patients";
+        return "patients";
     }
     @GetMapping("/new")
     public String NewPatient(Model model)
     {
         model.addAttribute("patient", new Patient());
-        return "NewPatient";
+        return "newpatient";
     }
     @PostMapping("/new")
     public String Creating(@ModelAttribute("patient") @Valid Patient patient, Model model)
@@ -57,7 +56,7 @@ public class UserController {
     {
         model.addAttribute("patient", patientService.show(id));
         model.addAttribute("text", analysis.Сomparison(patientService.show(id)));
-        return "Index";
+        return "index";
     }
     @GetMapping("/patient/{id}/edit")
     public String EditPatient(Model model, @PathVariable Long id)
@@ -66,7 +65,7 @@ public class UserController {
         ArrayList<Patient> patients = new ArrayList<>();
         patient.ifPresent(patients::add);
         model.addAttribute("patients", patients);
-        return "Edit";
+        return "edit";
     }
     @PostMapping("/patient/{id}/edit")
     public String Redacting(@PathVariable(name = "id") long id,

@@ -1,7 +1,7 @@
-package com.Service;
+package com.service;
 
-import com.Model.Norma;
-import com.Model.Patient;
+import com.model.Norma;
+import com.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

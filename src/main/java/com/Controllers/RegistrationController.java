@@ -1,10 +1,8 @@
-package com.Controllers;
+package com.controllers;
 
-import com.Model.Role;
-import com.Model.User;
-import com.Service.UserService;
+import com.model.User;
+import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +22,7 @@ public class RegistrationController {
     public String registration(Model model)
     {
         model.addAttribute("userForm", new User());
-        return "Registration";
+        return "registration";
     }
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("userForm") @Valid User userForm,
@@ -32,7 +30,7 @@ public class RegistrationController {
     {
         if (!userService.NewUser(userForm, checkbox)){
             model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-            return "Registration";
+            return "registration";
         }
         return "redirect:/";
     }
