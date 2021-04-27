@@ -32,6 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().disable()
                 .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
                 .authorizeRequests()
                 .antMatchers("/", "/registration", "/h2-console/**", "/h2-console/login.do").permitAll()
                 //.antMatchers("/users").hasRole("ADMIN")

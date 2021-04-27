@@ -49,7 +49,7 @@ public class UserController {
     public String Creating(@ModelAttribute("patient") @Valid Patient patient, Model model)
     {
         patientService.Create(patient);
-        return "redirect:/";
+        return "redirect:/patients";
     }
     @GetMapping("patient/{id}")
     public String index(@PathVariable("id") int id, Model model)
@@ -88,7 +88,7 @@ public class UserController {
     public String DeletePatient(Model model, @PathVariable Long id)
     {
         patientService.delete(id);
-        return "redirect:/";
+        return "redirect:/patients";
     }
 
 }

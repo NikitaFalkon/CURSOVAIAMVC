@@ -1,6 +1,7 @@
 package com.service;
 
 import com.model.Norma;
+import com.model.Patient;
 import com.repository.NormaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,8 @@ public class NormaService {
         return normaRepository.findAll();
     }
 
-    public List<Norma> findByName(String name) {
-        return normaRepository.findAllByName(name);
+    public void Create(Norma norma)
+    {
+        normaRepository.save(norma);
     }
 }

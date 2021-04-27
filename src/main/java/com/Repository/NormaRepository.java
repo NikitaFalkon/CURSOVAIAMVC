@@ -10,5 +10,4 @@ public interface NormaRepository extends JpaRepository<Norma, Long> {
 
     List<Norma> findAllByAge(String age);
 
-    List<Norma> findAllByName(String name);
 }

@@ -58,24 +58,6 @@
             background-color: white;
             padding: 20px;
         }
-        table {
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-            width: 50%;
-            text-align: center;
-            border-collapse: separate;
-            border-spacing: 5px;
-            background: #f1f1f1;
-            border: 16px solid #f1f1f1;
-            border-radius: 20px;
-        }
-        th {
-            font-size: 18px;
-            padding: 10px;
-        }
-        td {
-            background: #F5D7BF;
-            padding: 10px;
-        }
     </style>
 </head>
 <body>
@@ -88,7 +70,6 @@
     <a href="/new">New Patient</a>
     <a href="/normals">Normals</a>
     <a href="/users">Users</a>
-    <a href="/login">Login</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
 <div class="row">
@@ -103,29 +84,28 @@
             Соц сети: <a href="https://vk.com/nsokolovsky">VK</a></p>
     </div>
 </div>
-    <div class="main" align="center">
-
-        <form th:action="@{/patientsall}" method="get">
-            <div><label> Patients Name : <input type="text" name="firstname"/> </label></div>
-            <div><input type="submit" value="Find"/></div>
-        </form>
-        <table>
-            <tr>
-                <th>Firstname</th>
-                <th>Surname</th>
-                <th>Page</th>
-            </tr>
-            <div th:each="patient : ${patients}">
-                <tr>
-                    <th><p th:text="${patient.getName()}">Name</p></th>
-                    <th><p th:text="${patient.getSurname()}">Surname</p> </th>
-                    <th><a th:href="'/patient/'+${patient.getId()}+''">Edit</a></th>
-                </tr>
-            </div>
-        </table>
-        <div>
-            <a href="/report">Create Html Report</a>
-        </div>
-    </div>
+<div class="main" align="center">
+    <form th:method="POST" th:action="@{/newnorma}" th:object="${norma}">
+        <label for="sex">Enter sex</label>
+        <input type="text" th:field="*{sex}"  id="sex"/>
+        <br/>
+        <label for="age">Enter age</label>
+        <input type="text" th:field="*{age}"  id="age"/>
+        <br/>
+        <label for="erythrocytes">Enter erythrocytes</label>
+        <input type="text" th:field="*{erythrocytes}"  id="erythrocytes"/>
+        <br/>
+        <label for="platelets">Enter platelets</label>
+        <input type="text" th:field="*{platelets}"  id="platelets"/>
+        <br/>
+        <label for="leukocytes">Enter leukocytes</label>
+        <input type="text"  th:field="*{leukocytes}" id="leukocytes"/>
+        <br/>
+        <label for="hemoglobin">Enter hemoglobin</label>
+        <input type="text"  th:field="*{hemoglobin}" id="hemoglobin"/>
+        <br/>
+        <button type="submit">Create</button>
+    </form>
+</div>
 </body>
 </html>

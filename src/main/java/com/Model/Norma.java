@@ -3,13 +3,11 @@ package com.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "norma")
+@Table(name = "normals")
 public class Norma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String surname;
     private String age;
     private String sex;
     private double erythrocytes;
