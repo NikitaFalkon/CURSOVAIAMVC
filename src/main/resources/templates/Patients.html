@@ -88,7 +88,7 @@
     <a href="/new">New Patient</a>
     <a href="/normals">Normals</a>
     <a href="/users">Users</a>
-    <a href="/login">Login</a>
+    <a href="/menu">Menu</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
 <div class="row">
@@ -106,8 +106,8 @@
     <div class="main" align="center">
 
         <form th:action="@{/patientsall}" method="get">
-            <div><label> Patients Name : <input type="text" name="firstname"/> </label></div>
-            <div><input type="submit" value="Find"/></div>
+            <div><label> Patient Name : <input type="text" name="firstname"/> </label>
+            <input type="submit" value="Find"/></div>
         </form>
         <table>
             <tr>
@@ -124,7 +124,7 @@
             </div>
         </table>
         <div>
-            <a href="/report">Create Html Report</a>
+            <h3><a href="/report">Create Html Report</a></h3>
         </div>
     </div>
 </body>

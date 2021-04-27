@@ -71,6 +71,7 @@
     <a href="/normals">Normals</a>
     <a href="/users">Users</a>
     <a href="/login">Login</a>
+    <a href="/registration">Registration</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
 <div class="row">
@@ -86,10 +87,6 @@
     </div>
     <div class="main" align="center">
         <h2>TITLE HEADING</h2>
-        Logged user: <span sec:authentication="username">Bob</span>
-        <security:authorize ifAnyGranted="ROLE_ADMIN">
-            <fmt:message key="welcomemessageadmin" />
-        </security:authorize>
     </div>
 </div>
 </body>

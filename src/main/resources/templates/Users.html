@@ -88,6 +88,7 @@
     <a href="/new">New Patient</a>
     <a href="/normals">Normals</a>
     <a href="/users">Users</a>
+    <a href="/menu">Menu</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
 <div class="row">
@@ -116,7 +117,7 @@
                 <th><p th:text="${user.getUsername()}">Username</p></th>
                 <th><p th:text="${user.getPassword()}">Password</p> </th>
                 <th><a th:href="'/users/'+${user.getId()}"><button>Delete</button></a></th>
-                <th><a th:href="'/users/'+${user.getId()}+'/edit'"><button>Edit</button></a></th>
+                <th><a th:href="'/users/'+${user.getId()}+'/edit'"><button>Page</button></a></th>
             </tr>
         </div>
     </table>
