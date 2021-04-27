@@ -3,10 +3,14 @@ package com.service;
 import com.model.Role;
 import com.model.User;
 import com.repository.UserRepository;
+import com.сonfiguration.WebSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +22,7 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    PasswordEncoder passwordEncoder = WebSecurityConfig.getPasswordEncoder();
     public Optional<User> FindById(Long id) {
         return userRepository.findById(id);
     }
@@ -78,6 +81,7 @@ public class UserService implements UserDetailsService {
 
     public boolean NewUser(User userForm, boolean checkbox) {
         userForm.setPassword(passwordEncoder.encode(userForm.getPassword()));
+      //  userForm.setPassword(getPassword.encode(userForm.getPassword()));
         if(checkbox)
         {
             userForm.setRoles(Collections.singleton(Role.ADMIN));

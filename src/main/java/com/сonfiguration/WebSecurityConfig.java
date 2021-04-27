@@ -3,6 +3,7 @@ package com.сonfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,7 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     PasswordEncoder passwordEncoder;
     @Bean
-    public PasswordEncoder getPasswordEncoder() {
+    @Scope("prototype")
+    public static PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder(8);
     }
     @Override
@@ -31,9 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/registration").permitAll()
+                .antMatchers("/", "/registration", "/h2-console/**", "/h2-console/login.do").permitAll()
                 //.antMatchers("/users").hasRole("ADMIN")
-                .anyRequest().authenticated()
+         //       .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
