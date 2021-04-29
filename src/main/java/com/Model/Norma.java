@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "normals")
-public class Norma {
+public class Norma{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

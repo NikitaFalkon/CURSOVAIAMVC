@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"  >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -83,38 +82,22 @@
             Мой телефон: +375291782359<br/>
             Соц сети: <a href="https://vk.com/nsokolovsky">VK</a></p>
     </div>
-</div>
-<div class="main" align="center">
-    <form th:method="POST" th:action="@{/newnorma}" th:object="${norma}">
-        <label for="sex"><strong>Select Sex:</strong>
-            <!--        <input id = "sex" name ="Child" type = "checkbox" th:field="*{sex}" value = "Child"/>-->
-            <select id="sex" th:field="*{sex}">
-                <option th:value="Man" th:text="Man">
-                <option th:value="Woman" th:text="Woman">
-            </select></label>
-        <br/>
-        <label for="age"><strong>Select Age:</strong></label>
-        <select id="age" th:field="*{age}">
-            <option th:value="Child" th:text="Child">
-            <option th:value="Adult" th:text="Adult">
-            <option th:value="Teenager" th:text="Teenager">
-        </select></label>
-        <br/>
-        <br/>
-        <label for="erythrocytes">Enter erythrocytes</label>
-        <input type="text" th:field="*{erythrocytes}"  id="erythrocytes"/>
-        <br/>
-        <label for="platelets">Enter platelets</label>
-        <input type="text" th:field="*{platelets}"  id="platelets"/>
-        <br/>
-        <label for="leukocytes">Enter leukocytes</label>
-        <input type="text"  th:field="*{leukocytes}" id="leukocytes"/>
-        <br/>
-        <label for="hemoglobin">Enter hemoglobin</label>
-        <input type="text"  th:field="*{hemoglobin}" id="hemoglobin"/>
-        <br/>
-        <button type="submit">Create</button>
-    </form>
+    <div class="main" align="center">
+        <div th:each="norma : ${normals}">
+            <form th:method="POST">
+                <!--/*@thymesVar id="name" type="com"*/-->
+                <input type="text" th:value="${norma.hemoglobin}" name="hemoglobin" placeholder="hemoglobin"/>
+                <br/>
+                <input type="text" th:value="${norma.platelets}" name="platelets" placeholder="platelets"/>
+                <br/>
+                <input type="text" th:value="${norma.erythrocytes}" name="erythrocytes" placeholder="erythrocytes"/>
+                <br/>
+                <input type="text" th:value="${norma.leukocytes}" name="leukocytes" placeholder="leukocytes"/>
+                <br/>
+                <button type="submit">Redact</button>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

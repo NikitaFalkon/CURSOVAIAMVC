@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NormaService {
@@ -37,5 +38,45 @@ public class NormaService {
     public void Create(Norma norma)
     {
         normaRepository.save(norma);
+    }
+
+    public void Delete(Long id) {
+        Norma norma = normaRepository.findById(id).orElseThrow();
+        normaRepository.delete(norma);
+    }
+
+    public void DeleteAll() {
+        normaRepository.deleteAll();
+    }
+
+    public boolean isnotEmpty() {
+        List<Norma> normas = normaRepository.findAll();
+        if(normas.isEmpty())
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public Optional<Norma> FindById(Long id) {
+        return normaRepository.findById(id);
+    }
+
+    public boolean redactNorma(double erythrocytes,
+                                 int platelets,
+                                 double leukocytes,
+                                 int hemoglobin,
+                                 long id) {
+        Norma norma = normaRepository.findById(id).orElseThrow();
+        if (norma!=null)
+        {
+            norma.setErythrocytes(erythrocytes);
+            norma.setHemoglobin(hemoglobin);
+            norma.setLeukocytes(leukocytes);
+            norma.setPlatelets(platelets);
+            normaRepository.save(norma);
+            return true;
+        }
+        return false;
     }
 }

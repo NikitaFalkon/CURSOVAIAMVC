@@ -86,11 +86,20 @@
 </div>
 <div class="main" align="center">
     <form th:method="POST" th:action="@{/newnorma}" th:object="${norma}">
-        <label for="sex">Enter sex</label>
-        <input type="text" th:field="*{sex}"  id="sex"/>
+        <label for="sex"><strong>Select Sex:</strong>
+            <!--        <input id = "sex" name ="Child" type = "checkbox" th:field="*{sex}" value = "Child"/>-->
+            <select id="sex" th:field="*{sex}">
+                <option th:value="Man" th:text="Man">
+                <option th:value="Woman" th:text="Woman">
+            </select></label>
         <br/>
-        <label for="age">Enter age</label>
-        <input type="text" th:field="*{age}"  id="age"/>
+        <label for="age"><strong>Select Age:</strong></label>
+        <select id="age" th:field="*{age}">
+            <option th:value="Child" th:text="Child">
+            <option th:value="Adult" th:text="Adult">
+            <option th:value="Teenager" th:text="Teenager">
+        </select></label>
+        <br/>
         <br/>
         <label for="erythrocytes">Enter erythrocytes</label>
         <input type="text" th:field="*{erythrocytes}"  id="erythrocytes"/>

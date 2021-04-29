@@ -114,12 +114,14 @@
                 <th>Firstname</th>
                 <th>Surname</th>
                 <th>Page</th>
+                <th>Delete</th>
             </tr>
             <div th:each="patient : ${patients}">
                 <tr>
                     <th><p th:text="${patient.getName()}">Name</p></th>
                     <th><p th:text="${patient.getSurname()}">Surname</p> </th>
                     <th><a th:href="'/patient/'+${patient.getId()}+''">Edit</a></th>
+                    <th><a th:href="'/patient/'+${patient.getId()}+'/delete'"><button>Delete</button></a></th>
                 </tr>
             </div>
         </table>

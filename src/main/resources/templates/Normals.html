@@ -85,7 +85,6 @@
 <div class="navbar">
     <a href="/patients">Patients</a>
     <a href="/new">New Patient</a>
-    <a href="/newnorma">New Norma</a>
     <a href="/users">Users</a>
     <a href="/menu">Menu</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
@@ -110,6 +109,8 @@
                 <th>Platelets</th>
                 <th>Leukocytes</th>
                 <th>Hemoglobin</th>
+                <th>Delete</th>
+                <th>Edit</th>
             </tr>
             <!--/*@thymesVar id="normals" type=""*/-->
             <div th:each="norma : ${normals}">
@@ -120,6 +121,8 @@
                     <th><p th:text="${norma.getPlatelets()}">Platel</p> </th>
                     <th><p th:text="${norma.getLeukocytes()}">leuk</p></th>
                     <th> <p th:text="${norma.getHemoglobin()}">Hem</p></th>
+                    <th><a th:href="'/normals/'+${norma.getId()}"><button>Delete</button></a></th>
+                    <th><a th:href="'/normals/'+${norma.getId()}+'/edit'"><button>Edit</button></a></th>
                 </tr>
             </div>
         </table>

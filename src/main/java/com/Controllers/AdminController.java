@@ -20,8 +20,7 @@ import java.util.Optional;
 public class AdminController {
     @Autowired
     UserService userService;
-    @Autowired
-    NormaService normaService;
+
     @GetMapping("/users")
     public String Users(Model model)
     {
@@ -56,16 +55,5 @@ public class AdminController {
         }
         return "redirect:/users";
     }
-    @GetMapping("/newnorma")
-    public String NewPatient(Model model)
-    {
-        model.addAttribute("norma", new Norma());
-        return "newnorma";
-    }
-    @PostMapping("/newnorma")
-    public String Creating(@ModelAttribute("norma") @Valid Norma norma, Model model)
-    {
-        normaService.Create(norma);
-        return "redirect:/normals";
-    }
+
 }
