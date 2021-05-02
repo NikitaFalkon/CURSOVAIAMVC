@@ -28,19 +28,19 @@ public class Analysis {
         return result;
     }
     private String Solving(int i, int i1, String st){
-        if(0.8*i>i1){
+        if(0.85*i>i1){
             return "You have too much "+st+".\n";
         }
-        else if(i<0.8*i1){
+        else if(i<0.85*i1){
             return "You dont have enough "+st+".\n";
         }
         return "";
     }
     private String Solving(double i, double i1, String st){
-        if(0.8*i>i1){
+        if(0.85*i>i1){
             return "You have too much "+st+".\n";
         }
-        else if(i<0.8*i1){
+        else if(i<0.85*i1){
             return "You dont have enough "+st+".\n";
         }
         return "";

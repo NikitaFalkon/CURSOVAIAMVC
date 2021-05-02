@@ -40,10 +40,10 @@ public class NormaService {
         normaRepository.save(norma);
     }
 
-    public void Delete(Long id) {
+/*    public void Delete(Long id) {
         Norma norma = normaRepository.findById(id).orElseThrow();
         normaRepository.delete(norma);
-    }
+    }*/
 
     public void DeleteAll() {
         normaRepository.deleteAll();

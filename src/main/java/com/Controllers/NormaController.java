@@ -31,11 +31,11 @@ public class NormaController {
         normaService.Create(norma);
         return "redirect:/normals";
     }*/
-    @GetMapping("/normals/{id}")
+/*    @GetMapping("/normals/{id}")
     public String DeleteNorma(Model model, @PathVariable("id") Long id) {
         normaService.Delete(id);
         return "redirect:/normals";
-    }
+    }*/
 
     @GetMapping("/normals/{id}/edit")
     public String EditPatient(Model model, @PathVariable Long id) {

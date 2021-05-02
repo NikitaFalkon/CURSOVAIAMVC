@@ -9,6 +9,6 @@ public class RepoController {
     @GetMapping("/report")
     public RedirectView Redirect ()
     {
-        return new RedirectView("http://localhost:9090/report/pdf");
+        return new RedirectView("http://localhost:9090/report/html");
     }
 }
