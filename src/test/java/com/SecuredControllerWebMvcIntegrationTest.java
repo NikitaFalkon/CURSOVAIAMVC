@@ -32,15 +32,15 @@ public class SecuredControllerWebMvcIntegrationTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("http://localhost/login"));
     }
-/*    @Test
+   @Test
     public void correct() throws Exception
     {
-        this.mockMvc.perform(formLogin().user("a").password("p"))
+        this.mockMvc.perform(formLogin().user("admin").password("admin"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/ex"))
-                .andExpect(content().string(containsString("This content is only shown to administrators.")));
-    }*/
+                .andExpect(redirectedUrl("/menu"));
+               // .andExpect(content().string(containsString("This content is only shown to administrators.")));
+    }
     @Test
     public void test() throws Exception
     {

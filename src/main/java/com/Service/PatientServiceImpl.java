@@ -15,9 +15,10 @@ public class PatientServiceImpl {
     public List<Patient> readAll() {
         return patientRepository.findAll();
     }
-    public void Create(Patient patient)
+    public boolean Create(Patient patient)
     {
         patientRepository.save(patient);
+        return true;
     }
     public Optional<Patient> FindById(Long id) {
         return patientRepository.findById(id);
@@ -29,6 +30,7 @@ public class PatientServiceImpl {
                                  int hemoglobin, long id)
     {
         Patient patient = patientRepository.findById(id).orElseThrow();
+        System.out.println(name);
         if (patient!=null)
         {
             patient.setName(name);
@@ -58,5 +60,14 @@ public class PatientServiceImpl {
 
     public List<Patient> findByFirstName(String name) {
         return patientRepository.findAllByName(name);
+    }
+
+    public boolean FindPatient(Patient patient) {
+        Patient patient1 = patientRepository.findByName(patient.getName());
+        if(patient1!=null)
+        {
+            return true;
+        }
+        return false;
     }
 }

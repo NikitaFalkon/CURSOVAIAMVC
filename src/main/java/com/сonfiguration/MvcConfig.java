@@ -26,7 +26,7 @@ public class MvcConfig implements WebMvcConfigurer {
     }
     @PostConstruct
     public void load() {
-        normaService.DeleteAll();
+       /* normaService.DeleteAll();
         Norma norma = new Norma();
         norma.setSex("Man");
         norma.setAge("Child");
@@ -79,6 +79,6 @@ public class MvcConfig implements WebMvcConfigurer {
         Generator generator = new Generator();
         List<Patient> userList = generator.generatePatient();
         System.out.println(userList);
-        userList.forEach(patient -> {patientService.Create(patient);});
+        userList.forEach(patient -> {patientService.Create(patient);});*/
     }
 }
