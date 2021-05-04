@@ -70,4 +70,15 @@ public class PatientServiceImpl {
         }
         return false;
     }
+
+    public boolean redactPatient(long id, String notname) {
+        Patient patient = patientRepository.findById(id).orElseThrow();
+        if (patient!=null)
+        {
+            patient.setName(notname);
+            patientRepository.save(patient);
+            return true;
+        }
+        return false;
+    }
 }

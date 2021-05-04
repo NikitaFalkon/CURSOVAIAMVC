@@ -40,4 +40,18 @@ public class PatientServiceTest {
         boolean Exist = patientService.FindPatient(patient);
         Assert.assertTrue(Exist);
     }
+    @Test
+    public void testRedactUser()
+    {
+        Patient patient = new Patient();
+        patient.setName("name");
+        //user.setUsername("user");
+        patient.setId((long) 1);
+        Mockito.doReturn(new Patient())
+                .when(patientRepository)
+                .findById((long)1).orElseThrow();
+        boolean Redact = patientService.redactPatient(patient.getId(), "notname");
+        Assert.assertTrue(Redact);
+        Assert.assertEquals(patient.getName(), "name");
+    }
 }
