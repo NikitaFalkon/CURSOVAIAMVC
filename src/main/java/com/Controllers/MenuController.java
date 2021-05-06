@@ -24,7 +24,7 @@ public class MenuController {
 /*    @GetMapping("/menuadmin")
     public String MenuAdmin() {return "MenuAdmin";}*/
     @GetMapping("/ex")
-    public String Ex() {return "ex";}
+    public String Ex() {return "starting";}
     @ExceptionHandler(AccessDeniedException.class)
     public void handleError(HttpServletResponse response) throws IOException {
         response.sendRedirect("/menu");

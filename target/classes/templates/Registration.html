@@ -2,98 +2,128 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <title>Page Title</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .space {
-            /*padding: 20px; */
-            background: #E5D3BD;
-            border: 2px solid #E81E25;
-            width: 100%;
+        * {
+            box-sizing: border-box;
         }
-        header {
-            width: 100%;
-            background: #00BFFF;
-            height: 90px;
+
+        body {
+            /*font-family: Arial, Helvetica, sans-serif;*/
+            margin: 0;
+            background: url(https://as2.ftcdn.net/jpg/00/41/16/61/1000_F_41166111_srdZwMuXNPFssiMhFk5ku7cZCXrdnwCV.jpg);
+        }
+        .header {
+            padding: 80px;
             text-align: center;
+            /*            background: #63ADD0;
+                        color: white;*/
+            /*opacity:0.5;*/
+
         }
+        .header h1 {
+            font-size: 40px;
+            filter:alpha(opacity=99);
+        }
+
+        /* Style the top navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: #333;
+            background-color: #125181;
         }
 
         .navbar a {
             float: left;
+            display: block;
             color: white;
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
         }
 
+        /* Right-aligned link */
         .navbar a.right {
             float: right;
         }
+
+        /* Change color on hover */
         .navbar a:hover {
-            background-color: #ddd;
+            background-color: #5E9ECE;
             color: black;
         }
+
+        /* Column container */
         .row {
             display: flex;
             flex-wrap: wrap;
         }
 
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
         .side {
             flex: 30%;
-            /*            width: : left;*/
-            background-color: #f1f1f1;
+            background-color: #D1E3F1;
             padding: 20px;
-            height: 1000px;
-            width: 230px;
-            position: fixed;
-            padding: 20px 20px 20px 20px;
-            left: 0;
         }
+
+        /* Main column */
         .main {
             flex: 70%;
             background-color: white;
             padding: 20px;
         }
+
+        /* Fake image, just for this example */
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-<div><header id="23">
-    <h2>Мой сайт</h2>
-    <h3>Никита Соколовский</h3>
-</header></div>
+
+<div class="header">
+    <br/>
+    <br/>
+    <br/>
+</div>
+
 <div class="navbar">
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
+
 <div class="row">
     <div class="side">
-        <h2>Про вебсайт</h2>
-        <!--         <h5>Some photo of clinic:</h5> -->
-        <!--         <div> <img src="https://st.depositphotos.com/1389715/3133/i/600/depositphotos_31330561-stock-photo-european-luxury-medical-clinic.jpg" style="height:200px;"></div>
-                <p>Website created for workers of hospitals and clinics. It simplifies editing and recording of patient blood test information</p> -->
-        <h3>Отзыв</h3>
-        <p>Вы можете связаться со мной:<br/>
-            Мой телефон: +375291782359<br/>
-            Соц сети: <a href="https://vk.com/nsokolovsky">VK</a></p>
+        <h1>BloodTest</h1>
+        <p>Created by Nikita Sokolovsky.</p>
+        <h5>Some photo of clinic:</h5>
+        <div> <img src="https://st3.depositphotos.com/12982378/17555/i/600/depositphotos_175554182-stock-photo-table-with-chairs-and-shelves.jpg" style="height:200px;"></div>
+        <p>Website created for workers of hospitals and clinics. It simplifies editing and recording of patient blood test information</p>
+        <h3>Feedback</h3>
+        <p>You can connect with me:<br/>
+            My phone number: +375291782359<br/>
+            Social Network: <a href="https://vk.com/nsokolovsky">VK</a></p>
+    </div>
+    <div class="main">
+        <h3>Registration</h3>
+        <div>
+            <form th:method="POST" th:action="@{/registration}" th:object="${userForm}">
+                <label for="username">Enter name</label><br/>
+                <input type="text" th:field="*{username}"  id="username"/>
+                <br/>
+                <label for="password">Enter password</label><br/>
+                <input type="text"  th:field="*{password}" id="password"/>
+                <br/>
+                <label for="checkbox">Admin</label>
+                <input type="checkbox" name="checkbox" id="checkbox"><br/>
+                <button type="submit">Create</button>
+            </form>
+        </div>
     </div>
 </div>
-<div class="main" align="center">
-    <div>
-        <form th:method="POST" th:action="@{/registration}" th:object="${userForm}">
-            <label for="username">Enter name</label>
-            <input type="text" th:field="*{username}"  id="username"/>
-            <br/>
-            <label for="password">Enter password</label>
-            <input type="text"  th:field="*{password}" id="password"/>
-            <br/>
-            <label for="checkbox">Admin</label>
-            <input type="checkbox" name="checkbox" id="checkbox">
-            <button type="submit">Create</button>
-        </form>
-    </div>
-</div>
+
 </body>
 </html>

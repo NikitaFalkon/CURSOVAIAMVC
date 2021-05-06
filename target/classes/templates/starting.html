@@ -18,8 +18,8 @@
         .header {
             padding: 80px;
             text-align: center;
-            /*            background: #63ADD0;
-                        color: white;*/
+/*            background: #63ADD0;
+            color: white;*/
             /*opacity:0.5;*/
 
         }
@@ -87,7 +87,7 @@
             text-align: center;
             border-collapse: separate;
             border-spacing: 5px;
-            background: #5E9ECE;
+            background: #f1f1f1;
             border: 16px solid #f1f1f1;
             border-radius: 20px;
         }
@@ -112,7 +112,6 @@
 <div class="navbar">
     <a href="/patients">Patients</a>
     <a href="/new">New Patient</a>
-    <a href="/normals">Normals</a>
     <a href="/users">Users</a>
     <a href="/menu">Menu</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
@@ -130,36 +129,27 @@
             My phone number: +375291782359<br/>
             Social Network: <a href="https://vk.com/nsokolovsky">VK</a></p>
     </div>
-    <div class="main">
-        <form th:action="@{/patientsall}" method="get">
-            <div><label> Patient Name : <input type="text" name="firstname"/> </label>
-                <input type="submit" value="Find"/></div>
-        </form>
-        <br/>
-        <table>
-            <tr>
-                <th>Firstname</th>
-                <th>Surname</th>
-                <th>Age</th>
-                <th>Sex</th>
-                <th>Page</th>
-                <th>Delete</th>
-            </tr>
+        <div class="main">
             <div th:each="patient : ${patients}">
-                <tr>
-                    <td><p th:text="${patient.getName()}">Name</p></td>
-                    <td><p th:text="${patient.getSurname()}">Surname</p> </td>
-                    <td><p th:text="${patient.getAge()}">Age</p> </td>
-                    <td><p th:text="${patient.getSex()}">Sex</p> </td>
-                    <td><a th:href="'/patient/'+${patient.getId()}+''">Edit</a></td>
-                    <td><a th:href="'/patient/'+${patient.getId()}+'/delete'"><button>Delete</button></a></td>
-                </tr>
+                <form th:method="POST">
+                    <!--/*@thymesVar id="name" type="com"*/-->
+                    <input type="text" th:value="${patient.name}" name="name" placeholder="name"/>
+                    <br/>
+                    <!--/*@thymesVar id="surname" type=""*/-->
+                    <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname"/>
+                    <br/>
+                    <input type="text" th:value="${patient.hemoglobin}" name="hemoglobin" placeholder="hemoglobin"/>
+                    <br/>
+                    <input type="text" th:value="${patient.platelets}" name="platelets" placeholder="platelets"/>
+                    <br/>
+                    <input type="text" th:value="${patient.erythrocytes}" name="erythrocytes" placeholder="erythrocytes"/>
+                    <br/>
+                    <input type="text" th:value="${patient.leukocytes}" name="leukocytes" placeholder="leukocytes"/>
+                    <br/>
+                    <button type="submit">Redact</button>
+                </form>
             </div>
-        </table>
-        <div>
-            <h3><a href="/reporting">Create Html Report</a></h3>
         </div>
-    </div>
 </div>
 
 </body>

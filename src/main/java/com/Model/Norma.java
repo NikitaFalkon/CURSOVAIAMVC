@@ -1,6 +1,7 @@
 package com.model;
 
 import javax.persistence.*;
+import java.awt.*;
 
 @Entity
 @Table(name = "normals")
@@ -8,12 +9,22 @@ public class Norma{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String age;
-    private String sex;
+    @Enumerated(EnumType.STRING)
+    private Age age;
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
     private double erythrocytes;
     private int platelets;
     private double leukocytes;
     private int hemoglobin;
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
 
     public long getId() {
         return id;
@@ -23,20 +34,12 @@ public class Norma{
         this.id = id;
     }
 
-    public String getAge() {
+    public Age getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Age age) {
         this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
     }
 
     public double getErythrocytes() {

@@ -1,11 +1,10 @@
 package com.service;
 
 import com.model.Patient;
+import com.model.Age;
+import com.model.Sex;
 import org.decimal4j.util.DoubleRounder;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,8 +28,8 @@ public class Generator {
                 "Dog", "Fish", "Bird", "Mouse", "Red"}; //Да я решил дать своим пациентам фамилии животных
         List<String> freeSurnames = null;
         freeSurnames = new ArrayList<>(Arrays.asList(surnames));
-        String[] sex = {"Man", "Woman"};
-        String[] age = {"Adult", "Child", "Teenager"};
+        Sex[] sex = {Sex.Man, Sex.Woman};
+        Age[] age = {Age.Adult, Age.Child, Age.Teenager};
 
         List<Patient> patients = new ArrayList<>();
         for (int i=0; i<7; i++)

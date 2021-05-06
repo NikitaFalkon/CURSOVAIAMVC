@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"  >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <title>Page Title</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * {
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            /*font-family: Arial, Helvetica, sans-serif;*/
             margin: 0;
+            background: url(https://as2.ftcdn.net/jpg/00/41/16/61/1000_F_41166111_srdZwMuXNPFssiMhFk5ku7cZCXrdnwCV.jpg);
         }
         .header {
             padding: 80px;
             text-align: center;
-            background: #63ADD0;
-            color: white;
+            /*            background: #63ADD0;
+                        color: white;*/
+            /*opacity:0.5;*/
+
         }
         .header h1 {
             font-size: 40px;
+            filter:alpha(opacity=99);
         }
 
         /* Style the top navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: #333;
+            background-color: #125181;
         }
 
         .navbar a {
@@ -44,7 +50,7 @@
 
         /* Change color on hover */
         .navbar a:hover {
-            background-color: #ddd;
+            background-color: #5E9ECE;
             color: black;
         }
 
@@ -58,7 +64,7 @@
         /* Sidebar/left column */
         .side {
             flex: 30%;
-            background-color: #f1f1f1;
+            background-color: #D1E3F1;
             padding: 20px;
         }
 
@@ -75,58 +81,81 @@
             width: 100%;
             padding: 20px;
         }
-
-        button {
-            background: #63ADD0;
-            font-size:1.2rem;
-
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            width: 100%;
+            text-align: center;
+            border-collapse: separate;
+            border-spacing: 5px;
+            background: #f1f1f1;
+            border: 16px solid #f1f1f1;
+            border-radius: 20px;
+        }
+        th {
+            font-size: 18px;
+            padding: 10px;
+        }
+        td {
+            background: #F5D7BF;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-<div><header id="23">
-    <h2>Мой сайт</h2>
-    <h3>Никита Соколовский</h3>
-</header></div>
+
+<div class="header">
+    <br/>
+    <br/>
+    <br/>
+</div>
+
 <div class="navbar">
     <a href="/patients">Patients</a>
     <a href="/new">New Patient</a>
-    <a href="/normals">Normals</a>
     <a href="/users">Users</a>
+    <a href="/menu">Menu</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
+
 <div class="row">
     <div class="side">
-        <h2>Про вебсайт</h2>
-        <!--         <h5>Some photo of clinic:</h5> -->
-        <!--         <div> <img src="https://st.depositphotos.com/1389715/3133/i/600/depositphotos_31330561-stock-photo-european-luxury-medical-clinic.jpg" style="height:200px;"></div>
-                <p>Website created for workers of hospitals and clinics. It simplifies editing and recording of patient blood test information</p> -->
-        <h3>Отзыв</h3>
-        <p>Вы можете связаться со мной:<br/>
-            Мой телефон: +375291782359<br/>
-            Соц сети: <a href="https://vk.com/nsokolovsky">VK</a></p>
+        <h1>BloodTest</h1>
+        <p>Created by Nikita Sokolovsky.</p>
+        <h5>Some photo of clinic:</h5>
+        <div> <img src="https://st3.depositphotos.com/12982378/17555/i/600/depositphotos_175554182-stock-photo-table-with-chairs-and-shelves.jpg" style="height:200px;"></div>
+        <p>Website created for workers of hospitals and clinics. It simplifies editing and recording of patient blood test information</p>
+        <h3>Feedback</h3>
+        <p>You can connect with me:<br/>
+            My phone number: +375291782359<br/>
+            Social Network: <a href="https://vk.com/nsokolovsky">VK</a></p>
     </div>
-    <div class="main" align="center">
+    <div class="main">
         <div th:each="patient : ${patients}">
             <form th:method="POST">
-                <!--/*@thymesVar id="name" type="com"*/-->
-                <input type="text" th:value="${patient.name}" name="name" placeholder="name"/>
+                <label for="name">Enter name</label><br/>
+                <input type="text" th:value="${patient.name}" name="name" placeholder="name" id="name"/>
                 <br/>
-                <!--/*@thymesVar id="surname" type=""*/-->
-                <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname"/>
+                <label for="surname">Enter surname</label><br/>
+                <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname" id="surname"/>
                 <br/>
-                <input type="text" th:value="${patient.hemoglobin}" name="hemoglobin" placeholder="hemoglobin"/>
+                <label for="hemoglobin">Enter hemoglobin</label><br/>
+                <input type="text" th:value="${patient.hemoglobin}" name="hemoglobin" placeholder="hemoglobin" id="hemoglobin"/>
                 <br/>
-                <input type="text" th:value="${patient.platelets}" name="platelets" placeholder="platelets"/>
+                <label for="platelets">Enter platelets</label><br/>
+                <input type="text" th:value="${patient.platelets}" name="platelets" placeholder="platelets" id="platelets"/>
                 <br/>
-                <input type="text" th:value="${patient.erythrocytes}" name="erythrocytes" placeholder="erythrocytes"/>
+                <label for="erythrocytes">Enter erythrocytes</label><br/>
+                <input type="text" th:value="${patient.erythrocytes}" name="erythrocytes" placeholder="erythrocytes" id="erythrocytes"/>
                 <br/>
-                <input type="text" th:value="${patient.leukocytes}" name="leukocytes" placeholder="leukocytes"/>
+                <label for="leukocytes">Enter leukocytes</label><br/>
+                <input type="text" th:value="${patient.leukocytes}" name="leukocytes" placeholder="leukocytes" id="leukocytes"/>
+                <br/>
                 <br/>
                 <button type="submit">Redact</button>
             </form>
         </div>
     </div>
 </div>
+
 </body>
 </html>

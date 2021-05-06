@@ -7,14 +7,33 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String name;
     private String surname;
-    private String age;
-    private String sex;
+    @Enumerated(EnumType.STRING)
+    private Age age;
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
     private double erythrocytes;
     private int platelets;
     private double leukocytes;
     private int hemoglobin;
+
+    public Age getAge() {
+        return age;
+    }
+
+    public void setAge(Age age) {
+        this.age = age;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
 
     public String getName() {
         return name;
@@ -40,21 +59,6 @@ public class Patient {
         this.id = id;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
 
     public double getErythrocytes() {
         return erythrocytes;

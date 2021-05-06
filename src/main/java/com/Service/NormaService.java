@@ -1,7 +1,9 @@
 package com.service;
 
+import com.model.Age;
 import com.model.Norma;
 import com.model.Patient;
+import com.model.Sex;
 import com.repository.NormaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +15,13 @@ import java.util.Optional;
 public class NormaService {
     @Autowired
     NormaRepository normaRepository;
-    public Norma Find(String age, String sex)
+    public Norma Find(Age age, Sex sex)
     {
        List<Norma> normals = normaRepository.findAllByAge(age);
         System.out.println(normals);
         List<Norma> normals1 = normaRepository.findAll();
         System.out.println(normals1);
         for (Norma norma: normals) {
-            System.out.println(sex + norma.getSex());
             if (norma.getSex().equals(sex))
             {
                 Norma norma1 = norma;
