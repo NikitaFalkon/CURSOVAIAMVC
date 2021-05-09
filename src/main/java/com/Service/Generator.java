@@ -18,21 +18,48 @@ public class Generator {
         System.out.println(result);
         return  result;
     }
+    public static List<String> generateRandomWords(int numberOfWords)
+    {
+        List<String> randomStrings = new ArrayList<>();
+        Random random = new Random();
+        for(int i = 0; i < numberOfWords; i++)
+        {
+            char[] word = new char[random.nextInt(8)+3]; // words of length 3 through 10. (1 and 2 letter words are boring.)
+            for(int j = 0; j < word.length; j++)
+            {
+                word[j] = (char)('a' + random.nextInt(26));
+            }
+            randomStrings.add(new String(word));
+        }
+        return randomStrings;
+    }
     public List<Patient> generatePatient()
     {
-        String[] names = {"Tom", "Martin", "Kim", "Sasha",
-                "Jack", "Toni", "Green", "Sophia", "Pavel"};
+        /*String[] names = {"Tom", "Martin", "Kim", "Sasha",
+                "Jack", "Toni", "Green", "Sophia", "Pavel",
+                "Q", "E", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V",
+                "QQ", "EQ", "DQ", "FQ", "GQ", "HQ", "JQ", "KQ", "LQ", "ZQ", "XQ", "CQ", "VQ",
+                "QQ", "EQ", "DQ", "FQ", "GQ", "HQ", "JQ", "KQ", "LQ", "ZQ", "XQ", "CQ", "VQ",
+                "R", "T", "Y", "U", "I", "O", "P", "A", "S", "B", "N", "M", "Z",
+                "Dog", "Fish", "Bird", "Mouse", "Red"};*/
         List<String> freeNames = null;
-        freeNames = new ArrayList<>(Arrays.asList(names));
-        String[] surnames = {"Kit", "Nekit", "Cat", "Po",
-                "Dog", "Fish", "Bird", "Mouse", "Red"}; //Да я решил дать своим пациентам фамилии животных
-        List<String> freeSurnames = null;
-        freeSurnames = new ArrayList<>(Arrays.asList(surnames));
+       // freeNames = new ArrayList<>(Arrays.asList(names));
+        freeNames = generateRandomWords(100);
+       /* String[] surnames = {"Kit", "Nekit", "Cat", "Po",
+                "Dog", "Fish", "Bird", "Mouse", "Red", "W",
+                "R", "T", "Y", "U", "I", "O", "P", "A", "S", "B", "N", "M", "Z",
+                "Q", "E", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V",
+                "QQ", "EQ", "DQ", "FQ", "GQ", "HQ", "JQ", "KQ", "LQ", "ZQ", "XQ", "CQ", "VQ",
+                "QQ", "EQ", "DQ", "FQ", "GQ", "HQ", "JQ", "KQ", "LQ", "ZQ", "XQ", "CQ", "VQ",
+                "Jack", "Toni", "Green", "Sophia", "Pavel",};*/ //Да я решил дать своим пациентам фамилии животных
+        //List<String> freeSurnames = null;
+        //freeSurnames = new ArrayList<>(Arrays.asList(surnames));
+        List<String> freeSurnames = generateRandomWords(100);
         Sex[] sex = {Sex.Man, Sex.Woman};
         Age[] age = {Age.Adult, Age.Child, Age.Teenager};
 
         List<Patient> patients = new ArrayList<>();
-        for (int i=0; i<7; i++)
+        for (int i=0; i<98; i++)
         {
             Patient patient = new Patient();
             Random rnd = new Random();
