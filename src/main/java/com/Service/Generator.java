@@ -44,7 +44,7 @@ public class Generator {
                 "Dog", "Fish", "Bird", "Mouse", "Red"};*/
         List<String> freeNames = null;
        // freeNames = new ArrayList<>(Arrays.asList(names));
-        freeNames = generateRandomWords(100);
+        freeNames = generateRandomWords(25);
        /* String[] surnames = {"Kit", "Nekit", "Cat", "Po",
                 "Dog", "Fish", "Bird", "Mouse", "Red", "W",
                 "R", "T", "Y", "U", "I", "O", "P", "A", "S", "B", "N", "M", "Z",
@@ -54,12 +54,12 @@ public class Generator {
                 "Jack", "Toni", "Green", "Sophia", "Pavel",};*/ //Да я решил дать своим пациентам фамилии животных
         //List<String> freeSurnames = null;
         //freeSurnames = new ArrayList<>(Arrays.asList(surnames));
-        List<String> freeSurnames = generateRandomWords(100);
+        List<String> freeSurnames = generateRandomWords(25);
         Sex[] sex = {Sex.Man, Sex.Woman};
         Age[] age = {Age.Adult, Age.Child, Age.Teenager};
 
         List<Patient> patients = new ArrayList<>();
-        for (int i=0; i<98; i++)
+        for (int i=0; i<23; i++)
         {
             Patient patient = new Patient();
             Random rnd = new Random();
@@ -67,10 +67,10 @@ public class Generator {
             patient.setSurname(freeSurnames.remove(rnd.nextInt(freeSurnames.size())));
             patient.setSex(sex[(int)(0+Math.random()*2)]);
             patient.setAge(age[(int)(0+Math.random()*3)]);
-            patient.setErythrocytes(roundAvoid(3.2+Math.random()*2.0));
-            patient.setHemoglobin((int)(110+Math.random()*51));
-            patient.setLeukocytes(roundAvoid(5.6+Math.random()*3.0));
-            patient.setPlatelets((int)(220+Math.random()*90));
+            patient.setErythrocytes(roundAvoid(3.2+Math.random()*2.2));
+            patient.setHemoglobin((int)(94+Math.random()*55));
+            patient.setLeukocytes(roundAvoid(5.4+Math.random()*3.0));
+            patient.setPlatelets((int)(240+Math.random()*90));
             patients.add(patient);
         }
         return patients;
