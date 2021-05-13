@@ -1,166 +1,525 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head>
-    <title>Page Title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            /*font-family: Arial, Helvetica, sans-serif;*/
-            margin: 0;
-            background: url(https://as2.ftcdn.net/jpg/00/41/16/61/1000_F_41166111_srdZwMuXNPFssiMhFk5ku7cZCXrdnwCV.jpg);
-        }
-        .header {
-            padding: 80px;
-            text-align: center;
-            /*            background: #63ADD0;
-                        color: white;*/
-            /*opacity:0.5;*/
-
-        }
-        .header h1 {
-            font-size: 40px;
-            filter:alpha(opacity=99);
-        }
-
-        /* Style the top navigation bar */
-        .navbar {
-            overflow: hidden;
-            background-color: #125181;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-        /* Right-aligned link */
-        .navbar a.right {
-            float: right;
-        }
-
-        /* Change color on hover */
-        .navbar a:hover {
-            background-color: #5E9ECE;
-            color: black;
-        }
-
-        /* Column container */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        /* Create two unequal columns that sits next to each other */
-        /* Sidebar/left column */
-        .side {
-            flex: 30%;
-            background-color: #D1E3F1;
-            padding: 20px;
-        }
-
-        /* Main column */
-        .main {
-            flex: 70%;
-            background-color: white;
-            padding: 20px;
-        }
-
-        /* Fake image, just for this example */
-        .fakeimg {
-            background-color: #aaa;
-            width: 100%;
-            padding: 20px;
-        }
-        table {
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-            width: 100%;
-            text-align: center;
-            border-collapse: separate;
-            border-spacing: 5px;
-            background: #5E9ECE;
-            border: 16px solid #f1f1f1;
-            border-radius: 20px;
-        }
-        th {
-            font-size: 18px;
-            padding: 10px;
-        }
-        td {
-            background: #F5D7BF;
-            padding: 10px;
-        }
-    </style>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style type="text/css">
+    a {text-decoration: none}
+  </style>
 </head>
-<body>
+<body text="#000000" link="#000000" alink="#000000" vlink="#000000">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td width="50%">&nbsp;</td><td align="center">
 
-<div class="header">
-    <br/>
-    <br/>
-    <br/>
+<a name="JR_PAGE_ANCHOR_0_1"></a>
+<table class="jrPage" cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 2026px; border-collapse: collapse; background-color: white;">
+<tr valign="top" style="height:0">
+<td style="width:20px"></td>
+<td style="width:1px"></td>
+<td style="width:78px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:26px"></td>
+<td style="width:53px"></td>
+<td style="width:1px"></td>
+<td style="width:79px"></td>
+<td style="width:5px"></td>
+<td style="width:74px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+<td style="width:246px"></td>
+<td style="width:1px"></td>
+<td style="width:400px"></td>
+<td style="width:2px"></td>
+<td style="width:400px"></td>
+<td style="width:2px"></td>
+<td style="width:400px"></td>
+</tr>
+<tr valign="top" style="height:33px">
+<td colspan="20">
+</td>
+</tr>
+<tr valign="top" style="height:33px">
+<td>
+</td>
+<td colspan="5" style="text-indent: 0px;  vertical-align: middle;text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 26px; line-height: 1.1499023; font-weight: bold;">Analysis</span></td>
+<td colspan="14">
+</td>
+</tr>
+<tr valign="top" style="height:43px">
+<td colspan="20">
+</td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">Id</span></td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">HEALTHY</span></td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">AGE</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">MORE</span></td>
+<td>
+</td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">NORMAL</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">LESS</span></td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">SICK</span></td>
+<td colspan="8">
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td colspan="20">
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="12" style="border-top: 1px solid #999999; ">
+</td>
+<td colspan="7">
+</td>
+</tr>
+<tr valign="top" style="height:16px">
+<td>
+</td>
+<td colspan="12">
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:555px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td style="pointer-events: auto; background-color: #FFFFFF; border-top: 1px solid #999999; ">
+</td>
+</tr>
+</table>
 </div>
-
-<div class="navbar">
-    <a href="/patients">Patients</a>
-    <a href="/new">New Patient</a>
-    <a href="/normals">Normals</a>
-    <a href="/users">Users</a>
-    <a href="/menu">Menu</a>
-    <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+</tr>
+<tr valign="top" style="height:1px">
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">132</span></td>
+<td>
+</td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Child</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.121</span></td>
+<td colspan="5">
+</td>
+</tr>
+<tr valign="top" style="height:14px">
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.083</span></td>
+<td>
+</td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.759</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.121</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.917</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="3">
+</td>
+<td>
+</td>
+</tr>
+</table>
 </div>
-
-<div class="row">
-    <div class="side">
-        <h1>BloodTest</h1>
-        <p>Created by Nikita Sokolovsky.</p>
-        <h5>Some photo of clinic:</h5>
-        <div> <img src="https://st3.depositphotos.com/12982378/17555/i/600/depositphotos_175554182-stock-photo-table-with-chairs-and-shelves.jpg" style="height:200px;"></div>
-        <p>Website created for workers of hospitals and clinics. It simplifies editing and recording of patient blood test information</p>
-        <h3>Feedback</h3>
-        <p>You can connect with me:<br/>
-            My phone number: +375291782359<br/>
-            Social Network: <a href="https://vk.com/nsokolovsky">VK</a></p>
-    </div>
-    <div class="main">
-        <form th:action="@{/patientsall}" method="get">
-            <div><label> Patient Name : <input type="text" name="firstname"/> </label>
-                <input type="submit" value="Find"/></div>
-        </form>
-        <br/>
-        <table>
-            <tr>
-                <th>Firstname</th>
-                <th>Surname</th>
-                <th>Age</th>
-                <th>Sex</th>
-                <th>Page</th>
-                <th>Delete</th>
-            </tr>
-            <div th:each="patient : ${patients}">
-                <tr>
-                    <td><p th:text="${patient.getName()}">Name</p></td>
-                    <td><p th:text="${patient.getSurname()}">Surname</p> </td>
-                    <td><p th:text="${patient.getAge()}">Age</p> </td>
-                    <td><p th:text="${patient.getSex()}">Sex</p> </td>
-                    <td><a th:href="'/patient/'+${patient.getId()}+''">Edit</a></td>
-                    <td><a th:href="'/patient/'+${patient.getId()}+'/delete'"><button>Delete</button></a></td>
-                </tr>
-            </div>
-        </table>
-        <div>
-            <h3><a href="/report">Create Html Report</a></h3>
-        </div>
-    </div>
 </div>
+</td>
+<td colspan="7">
+</td>
+</tr>
+<tr valign="top" style="height:16px">
+<td>
+</td>
+<td colspan="12">
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:555px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td style="pointer-events: auto; background-color: #FFFFFF; border-top: 1px solid #999999; ">
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+</tr>
+<tr valign="top" style="height:1px">
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">133</span></td>
+<td>
+</td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Teenager</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.143</span></td>
+<td colspan="5">
+</td>
+</tr>
+<tr valign="top" style="height:14px">
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.3</span></td>
+<td>
+</td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.8</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.057</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.7</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="3">
+</td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+<td colspan="7">
+</td>
+</tr>
+<tr valign="top" style="height:16px">
+<td>
+</td>
+<td colspan="12">
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:555px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td style="pointer-events: auto; background-color: #FFFFFF; border-top: 1px solid #999999; ">
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:79px"></td>
+<td style="width:1px"></td>
+</tr>
+<tr valign="top" style="height:1px">
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">134</span></td>
+<td>
+</td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Adult</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.214</span></td>
+<td colspan="5">
+</td>
+</tr>
+<tr valign="top" style="height:14px">
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.167</span></td>
+<td>
+</td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.714</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.071</span></td>
+<td rowspan="2" style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">0.833</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="3">
+</td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+<td colspan="7">
+</td>
+</tr>
+<tr valign="top" style="height:50px">
+<td colspan="20">
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="12" style="border-top: 1px solid #999999; ">
+</td>
+<td colspan="7">
+</td>
+</tr>
+<tr valign="top" style="height:65px">
+<td colspan="20">
+</td>
+</tr>
+<tr valign="top" style="height:410px">
+<td colspan="2">
+</td>
+<td colspan="8">
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:183px"></td>
+<td style="width:80px"></td>
+<td style="width:137px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: SansSerif; color: #000000; font-size: 10px; line-height: 1.2578125;">MORE</span></td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:400px"></td>
+</tr>
+<tr valign="top" style="height:10px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:400px">
+<td style="pointer-events: auto; ">
+<img src="patients.html_files/img_0_0_39.png" style="height: 400px" alt=""/></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+<td colspan="4">
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:183px"></td>
+<td style="width:80px"></td>
+<td style="width:137px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: SansSerif; color: #000000; font-size: 10px; line-height: 1.2578125;">LESS</span></td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:400px"></td>
+</tr>
+<tr valign="top" style="height:10px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:400px">
+<td style="pointer-events: auto; ">
+<img src="patients.html_files/img_0_0_40.png" style="height: 400px" alt=""/></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+<td>
+</td>
+<td>
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:179px"></td>
+<td style="width:80px"></td>
+<td style="width:141px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: SansSerif; color: #000000; font-size: 10px; line-height: 1.2578125;">NORMAL</span></td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:400px"></td>
+</tr>
+<tr valign="top" style="height:10px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:400px">
+<td style="pointer-events: auto; ">
+<img src="patients.html_files/img_0_0_41.png" style="height: 400px" alt=""/></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+<td>
+</td>
+<td>
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:177px"></td>
+<td style="width:80px"></td>
+<td style="width:143px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: SansSerif; color: #000000; font-size: 10px; line-height: 1.2578125;">SICK</span></td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:400px"></td>
+</tr>
+<tr valign="top" style="height:10px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:400px">
+<td style="pointer-events: auto; ">
+<img src="patients.html_files/img_0_0_42.png" style="height: 400px" alt=""/></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+<td>
+</td>
+<td>
+<div style="width: 100%; height: 100%; position: relative;">
+<div style="position: absolute; overflow: hidden; width: 100%; height: 100%; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:175px"></td>
+<td style="width:80px"></td>
+<td style="width:145px"></td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="pointer-events: auto; text-indent: 0px; text-align: left;">
+<span style="font-family: SansSerif; color: #000000; font-size: 10px; line-height: 1.2578125;">HEALTHY</span></td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<div style="position: relative; width: 100%; height: 100%; pointer-events: none; ">
+<table cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 100%; border-collapse: collapse;">
+<tr valign="top" style="height:0">
+<td style="width:400px"></td>
+</tr>
+<tr valign="top" style="height:10px">
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:400px">
+<td style="pointer-events: auto; ">
+<img src="patients.html_files/img_0_0_43.png" style="height: 400px" alt=""/></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr valign="top" style="height:142px">
+<td colspan="20">
+</td>
+</tr>
+</table>
 
+</td><td width="50%">&nbsp;</td></tr>
+</table>
 </body>
 </html>

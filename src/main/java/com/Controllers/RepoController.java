@@ -7,9 +7,14 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class RepoController {
-    @GetMapping("/report")
-    public RedirectView Redirecting()
+    @GetMapping("/report/table")
+    public RedirectView Table()
     {
-        return new RedirectView("http://localhost:9090/report");
+        return new RedirectView("http://localhost:9090/report?format=table");
+    }
+    @GetMapping("/report/diagram")
+    public RedirectView Diagram()
+    {
+        return new RedirectView("http://localhost:9090/report?format=diagram");
     }
 }

@@ -21,6 +21,8 @@ public class AnalysisService {
     NormaRepository normaRepository;
     @Autowired
     AnalysisRepository analysisRepository;
+    @Autowired
+    Analysis analysing;
     public List<Analys> Create()
     {
         List<Analys> analysisList = new ArrayList<>();
@@ -41,6 +43,7 @@ public class AnalysisService {
                         Solving(patient.getHemoglobin(), norma.getHemoglobin(), analysis);
                         Solving(patient.getErythrocytes(), norma.getErythrocytes(), analysis);
                         Solving(patient.getPlatelets(), norma.getPlatelets(), analysis);
+                        Health(patient, analysis);
                     }
                 }
             }
@@ -48,6 +51,14 @@ public class AnalysisService {
             analysisRepository.save(analysis);
         }
         return analysisList;
+    }
+    public void Health(Patient patient, Analys analys)
+    {
+        if(analysing.Сomparison(patient).equals("You are normal"))
+        {
+            analys.Healthy();
+        }
+        analys.Sick();
     }
     private void Solving(int i, int i1, Analys analysis){
         if(0.85*i>i1){

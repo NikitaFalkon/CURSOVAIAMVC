@@ -73,19 +73,19 @@ public class MvcConfig implements WebMvcConfigurer {
         norma5.setErythrocytes(4.20);
         norma5.setHemoglobin(130);
         norma5.setLeukocytes(6.70);
-        norma5.setPlatelets(260);*/
-        /*normaService.Create(norma);
+        norma5.setPlatelets(260);
+        normaService.Create(norma);
         normaService.Create(norma1);
         normaService.Create(norma2);
         normaService.Create(norma3);
         normaService.Create(norma4);
-        normaService.Create(norma5);*/
+        normaService.Create(norma5);
         analysisService.Create();
         patientService.deleteAll();
         Generator generator = new Generator();
         List<Patient> userList = generator.generatePatient();
         System.out.println(userList);
         userList.forEach(patient -> {patientService.Create(patient);});
-        analysisService.Create();
+        analysisService.Create();*/
     }
 }
