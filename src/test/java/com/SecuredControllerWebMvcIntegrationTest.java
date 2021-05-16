@@ -35,7 +35,7 @@ public class SecuredControllerWebMvcIntegrationTest {
    @Test
     public void correct() throws Exception
     {
-        this.mockMvc.perform(formLogin().user("admin").password("admin"))
+        this.mockMvc.perform(formLogin().user("a").password("p"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/menu"));
@@ -47,6 +47,6 @@ public class SecuredControllerWebMvcIntegrationTest {
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("THello")));
+                .andExpect(content().string(containsString("Annotation")));
     }
 }

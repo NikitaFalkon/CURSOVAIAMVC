@@ -2,10 +2,11 @@ package com.model;
 
 import javax.persistence.*;
 import java.awt.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "normals")
-public class Norma{
+public class Norma implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

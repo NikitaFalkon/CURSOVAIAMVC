@@ -81,6 +81,24 @@
             width: 100%;
             padding: 20px;
         }
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            width: 100%;
+            text-align: center;
+            border-collapse: separate;
+            border-spacing: 5px;
+            background: #eaf1f7;
+            border: 16px solid #eaf1f7;
+            border-radius: 20px;
+        }
+        th {
+            font-size: 18px;
+            padding: 10px;
+        }
+        td {
+            background: #F5D7BF;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -92,6 +110,7 @@
 </div>
 
 <div class="navbar">
+    <a href="/registration">Registration</a>
     <a href="https://www.youtube.com/watch?v=FBZjN8vaXTs" class="right">Pop</a>
 </div>
 
@@ -108,20 +127,25 @@
             Social Network: <a href="https://vk.com/nsokolovsky">VK</a></p>
     </div>
     <div class="main">
+        <table>
+            <th>
         <div th:if="${param.error}">
             Invalid username and password.
         </div>
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
-        <h1>Login</h1>
+        <h3>Login</h3>
         <form th:action="@{/login}" method="post">
             <div><label> User Name:</label>
                 <br/><input type="text" name="username"/> </div>
             <div><label> Password:</label>
                 <br/><input type="password" name="password"/> </div>
+            <br/>
             <div><input type="submit" value="Sign In"/></div>
         </form>
+            </th>
+        </table>
     </div>
 </div>
 

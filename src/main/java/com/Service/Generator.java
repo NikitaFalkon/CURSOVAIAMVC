@@ -1,10 +1,12 @@
 package com.service;
 
+import com.model.Norma;
 import com.model.Patient;
 import com.model.Age;
 import com.model.Sex;
 import org.decimal4j.util.DoubleRounder;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -74,6 +76,29 @@ public class Generator {
             patients.add(patient);
         }
         return patients;
+    }
+    public ArrayList<Norma> GenerateNormals() throws IOException {
+            /*FileOutputStream  fos = new FileOutputStream ("C:\\FilesForJava\\norma.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            ArrayList<Norma> points = normas;
+            for (Norma point : points) {
+                oos.writeObject(point);
+            }
+            oos.flush();
+            oos.close();*/
+        FileInputStream fis = new FileInputStream("C:\\FilesForJava\\norma.txt");
+        ObjectInputStream oin = new ObjectInputStream(fis);
+        ArrayList<Norma> norm = new ArrayList<>();
+
+        while (true) {
+            try {
+                norm.add((Norma) oin.readObject());
+            } catch (EOFException | ClassNotFoundException e) {
+                break;
+            }
+        }
+        fis.close();
+        return norm;
     }
 
 }

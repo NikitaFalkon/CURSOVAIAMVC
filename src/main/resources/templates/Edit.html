@@ -87,8 +87,8 @@
             text-align: center;
             border-collapse: separate;
             border-spacing: 5px;
-            background: #f1f1f1;
-            border: 16px solid #f1f1f1;
+            background: #eaf1f7;
+            border: 16px solid #eaf1f7;
             border-radius: 20px;
         }
         th {
@@ -130,30 +130,37 @@
             Social Network: <a href="https://vk.com/nsokolovsky">VK</a></p>
     </div>
     <div class="main">
-        <div th:each="patient : ${patients}">
-            <form th:method="POST">
-                <label for="name">Enter name</label><br/>
-                <input type="text" th:value="${patient.name}" name="name" placeholder="name" id="name"/>
-                <br/>
-                <label for="surname">Enter surname</label><br/>
-                <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname" id="surname"/>
-                <br/>
-                <label for="hemoglobin">Enter hemoglobin</label><br/>
-                <input type="text" th:value="${patient.hemoglobin}" name="hemoglobin" placeholder="hemoglobin" id="hemoglobin"/>
-                <br/>
-                <label for="platelets">Enter platelets</label><br/>
-                <input type="text" th:value="${patient.platelets}" name="platelets" placeholder="platelets" id="platelets"/>
-                <br/>
-                <label for="erythrocytes">Enter erythrocytes</label><br/>
-                <input type="text" th:value="${patient.erythrocytes}" name="erythrocytes" placeholder="erythrocytes" id="erythrocytes"/>
-                <br/>
-                <label for="leukocytes">Enter leukocytes</label><br/>
-                <input type="text" th:value="${patient.leukocytes}" name="leukocytes" placeholder="leukocytes" id="leukocytes"/>
-                <br/>
-                <br/>
-                <button type="submit">Redact</button>
-            </form>
-        </div>
+        <table>
+            <tr>
+                <th>
+                <div th:each="patient : ${patients}">
+                    <form th:method="POST">
+                        <label for="name">Enter name</label><br/>
+                        <input type="text" th:value="${patient.name}" name="name" placeholder="name" id="name"/>
+                        <br/>
+                        <label for="surname">Enter surname</label><br/>
+                        <input type="text" th:value="${patient.surname}" name="surname" placeholder="surname" id="surname"/>
+                        <br/>
+                        <label for="hemoglobin">Enter hemoglobin</label><br/>
+                        <input type="text" th:value="${patient.hemoglobin}" name="hemoglobin" placeholder="hemoglobin" id="hemoglobin"/>
+                        <br/>
+                        <label for="platelets">Enter platelets</label><br/>
+                        <input type="text" th:value="${patient.platelets}" name="platelets" placeholder="platelets" id="platelets"/>
+                        <br/>
+                        <label for="erythrocytes">Enter erythrocytes</label><br/>
+                        <input type="text" th:value="${patient.erythrocytes}" name="erythrocytes" placeholder="erythrocytes" id="erythrocytes"/>
+                        <br/>
+                        <label for="leukocytes">Enter leukocytes</label><br/>
+                        <input type="text" th:value="${patient.leukocytes}" name="leukocytes" placeholder="leukocytes" id="leukocytes"/>
+                        <br/>
+                        <br/>
+                        <button type="submit">Redact</button>
+                    </form>
+                </div>
+                </th>
+            </tr>
+        </table>
+
     </div>
 </div>
 
