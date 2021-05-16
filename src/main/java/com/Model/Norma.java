@@ -1,7 +1,8 @@
 package com.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
-import java.awt.*;
 import java.io.Serializable;
 
 @Entity
@@ -10,13 +11,19 @@ public class Norma implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @JsonProperty("Age")
     @Enumerated(EnumType.STRING)
     private Age age;
+    @JsonProperty("Sex")
     @Enumerated(EnumType.STRING)
     private Sex sex;
+    @JsonProperty("Erythrocytes")
     private double erythrocytes;
+    @JsonProperty("Platelets")
     private int platelets;
+    @JsonProperty("Leukocytes")
     private double leukocytes;
+    @JsonProperty("Hemoglobin")
     private int hemoglobin;
 
     public Sex getSex() {

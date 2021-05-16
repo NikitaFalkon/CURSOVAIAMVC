@@ -21,8 +21,6 @@ public class MenuController {
     public String MenuUser() {
         return "menu";
     }
-/*    @GetMapping("/menuadmin")
-    public String MenuAdmin() {return "MenuAdmin";}*/
     @GetMapping("/ex")
     public String Ex() {return "patients";}
     @ExceptionHandler(AccessDeniedException.class)

@@ -2,7 +2,6 @@ package com.service;
 
 import com.model.Age;
 import com.model.Norma;
-import com.model.Patient;
 import com.model.Sex;
 import com.repository.NormaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,22 +40,17 @@ public class NormaService {
         normaRepository.save(norma);
     }
 
-/*    public void Delete(Long id) {
-        Norma norma = normaRepository.findById(id).orElseThrow();
-        normaRepository.delete(norma);
-    }*/
-
     public void DeleteAll() {
         normaRepository.deleteAll();
     }
 
-    public boolean isnotEmpty() {
+    public boolean isEmpty() {
         List<Norma> normas = normaRepository.findAll();
         if(normas.isEmpty())
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public Optional<Norma> FindById(Long id) {

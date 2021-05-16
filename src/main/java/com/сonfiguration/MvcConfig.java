@@ -1,9 +1,6 @@
 package com.сonfiguration;
 
-import com.model.Age;
 import com.model.Norma;
-import com.model.Patient;
-import com.model.Sex;
 import com.service.AnalysisService;
 import com.service.Generator;
 import com.service.NormaService;
@@ -15,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -34,8 +30,7 @@ public class MvcConfig implements WebMvcConfigurer {
     }
     @PostConstruct
     public void load() throws IOException {
-        //normaService.DeleteAll();
-        Norma norma = new Norma();
+        /*Norma norma = new Norma();
         norma.setSex(Sex.Man);
         norma.setAge(Age.Child);
         norma.setErythrocytes(4.00);
@@ -76,25 +71,16 @@ public class MvcConfig implements WebMvcConfigurer {
         norma5.setErythrocytes(4.20);
         norma5.setHemoglobin(130);
         norma5.setLeukocytes(6.70);
-        norma5.setPlatelets(260);
-        /*ArrayList<Norma> normas = new ArrayList<>();
-        normas.add(norma);
-        normas.add(norma1);
-        normas.add(norma2);
-        normas.add(norma3);
-        normas.add(norma4);
-        normas.add(norma5);*/
-        /*normaService.Create(norma);
-        normaService.Create(norma1);
-        normaService.Create(norma2);
-        normaService.Create(norma3);
-        normaService.Create(norma4);
-        normaService.Create(norma5);*/
+        norma5.setPlatelets(260);*/
         //analysisService.Create();
        // patientService.deleteAll();
+      //  normaService.DeleteAll();
         Generator generator = new Generator();
-        ArrayList<Norma> normals = generator.GenerateNormals();
-        normals.forEach(normal ->{normaService.Create(norma);});
+        if(normaService.isEmpty())
+        {
+            List<Norma> normals = generator.GenerateNormals();
+            normals.forEach(normal ->{normaService.Create(normal);});
+        }
         //List<Patient> userList = generator.generatePatient();
        // System.out.println(userList);
        // userList.forEach(patient -> {patientService.Create(patient);});

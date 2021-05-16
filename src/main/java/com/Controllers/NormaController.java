@@ -1,15 +1,16 @@
 package com.controllers;
 
 import com.model.Norma;
-import com.model.Patient;
 import com.service.NormaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -18,24 +19,6 @@ import java.util.Optional;
 public class NormaController {
     @Autowired
     NormaService normaService;
-
-    /*@GetMapping("/newnorma")
-    public String NewNorma(Model model)
-    {
-        model.addAttribute("norma", new Norma());
-        return "newnorma";
-    }
-    @PostMapping("/newnorma")
-    public String Creating(@ModelAttribute("norma") @Valid Norma norma, Model model)
-    {
-        normaService.Create(norma);
-        return "redirect:/normals";
-    }*/
-/*    @GetMapping("/normals/{id}")
-    public String DeleteNorma(Model model, @PathVariable("id") Long id) {
-        normaService.Delete(id);
-        return "redirect:/normals";
-    }*/
 
     @GetMapping("/normals/{id}/edit")
     public String EditPatient(Model model, @PathVariable Long id) {

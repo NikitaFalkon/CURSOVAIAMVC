@@ -1,14 +1,16 @@
 package com.service;
 
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.Age;
 import com.model.Norma;
 import com.model.Patient;
-import com.model.Age;
 import com.model.Sex;
 import org.decimal4j.util.DoubleRounder;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -77,28 +79,13 @@ public class Generator {
         }
         return patients;
     }
-    public ArrayList<Norma> GenerateNormals() throws IOException {
-            /*FileOutputStream  fos = new FileOutputStream ("C:\\FilesForJava\\norma.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            ArrayList<Norma> points = normas;
-            for (Norma point : points) {
-                oos.writeObject(point);
-            }
-            oos.flush();
-            oos.close();*/
-        FileInputStream fis = new FileInputStream("C:\\FilesForJava\\norma.txt");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        ArrayList<Norma> norm = new ArrayList<>();
-
-        while (true) {
-            try {
-                norm.add((Norma) oin.readObject());
-            } catch (EOFException | ClassNotFoundException e) {
-                break;
-            }
-        }
-        fis.close();
-        return norm;
+    public ArrayList<Norma> GenerateNormals()  throws IOException {
+        Converter converter = new Converter();
+        ObjectMapper mapper = new ObjectMapper();
+        JavaType type = mapper.getTypeFactory().
+                constructCollectionType(ArrayList.class, Norma.class);
+        ArrayList<Norma> normals = mapper.readValue(new File("normals.json"), type);
+        return normals;
     }
 
 }
