@@ -89,7 +89,7 @@
       border-spacing: 5px;
       background: #f1f1f1;
       border: 16px solid #f1f1f1;
-      border-radius: 20px;
+      border-radius: 18px;
     }
     th {
       font-size: 18px;
@@ -98,6 +98,22 @@
     td {
       background: #F5D7BF;
       padding: 10px;
+    }
+    .btn {
+      display: inline-block;
+      background: #9ec8e8;
+      color: black;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      border-radius: 3px;
+    }
+    .btn:hover {
+      display: inline-block;
+      background: #5E9ECE;
+      color: black;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      border-radius: 3px;
     }
   </style>
 </head>
@@ -134,7 +150,9 @@
       <div><label> Patient Name : <input type="text" name="firstname"/> </label>
         <input type="submit" value="Find"/></div>
     </form>
-    <br/>
+    <div>
+      <h3><a href="/report" class="btn">Create Html Report</a></h3>
+    </div>
     <table>
       <tr>
         <th>Firstname</th>
@@ -155,9 +173,7 @@
         </tr>
       </div>
     </table>
-    <div>
-      <h3><a href="/report">Create Html Report</a></h3>
-    </div>
+
 </div>
 
 </body>

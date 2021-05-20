@@ -23,7 +23,7 @@ public class AnalysisService {
     AnalysisRepository analysisRepository;
     @Autowired
     Analysis analysing;
-    public List<Analys> Create()
+    public void Create()
     {
         List<Analys> analysisList = new ArrayList<>();
         analysisRepository.deleteAll();
@@ -50,7 +50,6 @@ public class AnalysisService {
             analysisList.add(analysis);
             analysisRepository.save(analysis);
         }
-        return analysisList;
     }
     public void Health(Patient patient, Analys analys)
     {

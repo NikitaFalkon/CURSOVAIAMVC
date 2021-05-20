@@ -18,3 +18,8 @@ public class Application {
     }
 
 }
+/*
+@startuml
+class Application
+@enduml
+ */

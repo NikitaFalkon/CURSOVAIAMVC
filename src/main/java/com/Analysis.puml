@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Browser -> UserController: request(id)
+activate Browser
+activate UserController
+UserController -> PatientService: showById(id)
+activate PatientService
+PatientService ->Database: findById(id)
+activate Database
+Database --> PatientService: patient
+deactivate Database
+PatientService -->UserController: patient
+deactivate PatientService
+UserController -> Analysis: comparsion(patient)
+activate Analysis
+Analysis ->Database:findNorma(patientSex, patientAge)
+activate Database
+Database --> Analysis: norma
+deactivate Database
+Analysis -> Analysis: analysing(patient, norma)
+Analysis --> UserController: resultOfAnalysis()
+deactivate Analysis
+UserController -->Browser: showResult()
+deactivate UserController
+deactivate Browser
+@enduml

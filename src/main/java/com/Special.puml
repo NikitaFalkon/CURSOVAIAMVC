@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+header Sokolovsky Nikita
+title WebApplication
+
+Browser -> RepoController: request
+activate Browser
+activate RepoController
+
+RepoController -> AnalysisService: start()
+activate AnalysisService
+
+
+AnalysisService -> Database: findPatientsByAge(age)
+activate Database
+Database -->AnalysisService: patients
+deactivate  Database
+AnalysisService -> Database: findNormalsByAge(age)
+activate Database
+Database -->AnalysisService: normals
+deactivate  Database
+AnalysisService->AnalysisService: createAnalysis(patients, normals)
+AnalysisService -> Database: save(analysis);
+activate  Database
+Database -->AnalysisService
+deactivate Database
+
+AnalysisService --> RepoController
+
+deactivate AnalysisService
+RepoController -> RestController: getForEntity
+activate RestController
+
+RestController -> Database: AnalysisRepository.findAll()
+activate Database
+Database --> RestController: analysis
+deactivate Database
+RestController ->ReportService:createReport(analysis)
+activate ReportService
+ReportService --> RestController: pdfReport
+deactivate ReportService
+RestController -->RepoController: pdfReport
+deactivate RestController
+RepoController -->Browser: showReport()
+deactivate RepoController
+deactivate Browser
+database Database
+newpage
+@enduml
